@@ -6,12 +6,10 @@
 
 ## Instação
 
-<br>
-
 ### Clone o repositório
 
 ```
-git clone
+git clone https://github.com/jovimoura/bem-paggo-challenge
 ```
 
 ### Acesse o diretorio
