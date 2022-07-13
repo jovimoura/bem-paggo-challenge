@@ -13,16 +13,37 @@ export default {
         this.qtdStickers -= 1
       }
     },
+    clearForm() {
+      this.checkedStickers = []
+      this.qtdStickers = 0
+      this.obs = ''
+      this.paymentForm = ''
+      this.form = []
+    },
     submitForm() {
-      const res = {
-        stickers: this.checkedStickers,
-        qtdStickers: this.qtdStickers,
-        obs: this.obs,
-        paymentForm: this.paymentForm
+      const listStickers = [...this.checkedStickers]
+      if (listStickers.length) {
+        if (this.qtdStickers !== 0) {
+          if (this.paymentForm !== '') {
+            const res = {
+              stickers: this.checkedStickers,
+              qtdStickers: this.qtdStickers,
+              obs: this.obs,
+              paymentForm: this.paymentForm
+            }
+            this.form.push(res)
+            console.log('form', this.form)
+            alert('Pedido concluído com sucesso!')
+            this.clearForm()
+          } else {
+            alert('Por favor, selecione a forma de pagamento')
+          }
+        } else {
+          alert('Por favor, selecione a quantidade de adesivos')
+        }
+      } else {
+        alert('Por favor, selecione os adesivos desejados!')
       }
-
-      this.form.push(res)
-      console.log('form', this.form)
     }
   },
   data() {
